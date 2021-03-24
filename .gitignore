@@ -1,0 +1,5 @@
+test/
+train/
+valid/
+Scaled-Yolov4/runs/
+Scaled-Yolov4/inference/output/
