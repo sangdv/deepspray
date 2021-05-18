@@ -20,3 +20,7 @@ Please refer to "2. Train.ipynb"
 ## Step 4. Inference
 
 Run "3. Inference.ipynb"
+
+## All-in-one file
+
+You also can use all-in-one file in "train_scaled_yolov4_full_step.ipynb"
