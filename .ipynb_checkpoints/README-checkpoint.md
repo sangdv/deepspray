@@ -8,7 +8,7 @@
 
 Run "0. Install Lib.ipynb"
 
-## Step 2: Generate Train/Valid Data
+## Step 2: Generate Train/Valid Data from source in Scaled-Yolov4/ori_img
 
 Please run "1. Generate Data.ipynb"
 
