@@ -1,8 +1,9 @@
 # YOLOv4-large
 
 ## Directory structure
-- train, test, valid: Directory containing model traning data - includes photos and corresponding labels
-- Scaled-Yolov4/ori_img: Folder containing the tagged original image data
+- Scaled-Yolov4/ori_img: original annotated data
+- train, valid: synthesized training và validation images
+- test: test data
 
 ## Step 1: Installation lib
 
@@ -16,17 +17,10 @@ Please run "1. Generate Data.ipynb"
 
 Please refer to "2. Train.ipynb"
 
-## Step 4. Testing
+## Step 4. Inference
 
 Run "3. Inference.ipynb"
 
-## Citation
+## All-in-one file
 
-```
-@article{wang2020scaled,
-  title={{Scaled-YOLOv4}: Scaling Cross Stage Partial Network},
-  author={Wang, Chien-Yao and Bochkovskiy, Alexey and Liao, Hong-Yuan Mark},
-  journal={arXiv preprint arXiv:2011.08036},
-  year={2020}
-}
-```
+You also can use all-in-one file in "train_scaled_yolov4_full_step.ipynb"
