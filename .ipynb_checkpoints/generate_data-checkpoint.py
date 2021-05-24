@@ -15,7 +15,7 @@ if not os.path.exists("./test/images"): os.makedirs("./test/images")
 
 PREFIX = "f_"
 # Place original labeled img
-SOURCE = "./Scaled-Yolov4/ori_img/"
+SOURCE = "./Scaled-Yolov4/ori_img_2/"
 
 noise1 = cv2.imread("./Scaled-Yolov4/noise1.png")
 noise1 = cv2.cvtColor(noise1, cv2.COLOR_BGR2RGB)
