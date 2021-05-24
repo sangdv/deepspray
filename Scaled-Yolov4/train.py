@@ -349,6 +349,15 @@ def train(hyp, opt, device, tb_writer=None):
                 if best_fitness == fi:
                     torch.save(ckpt, best)
                 del ckpt
+                
+                try:
+                    os.system("cp "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+"/weights/last.pt "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+"/weights/last2.pt")
+                    os.system("python detect.py --weights "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+
+                              "/weights/last2.pt --img 1200 --conf 0.1 --source ../test/images " + 
+                             "--output inference/" + str(epoch))
+                except:
+                    print("********** CANNOT INFER ***********")
+                    
         # end epoch ----------------------------------------------------------------------------------------------------
     # end training
 

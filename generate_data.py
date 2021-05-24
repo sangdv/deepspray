@@ -42,9 +42,9 @@ for img_file in os.listdir(SOURCE + "images"):
     for j in range(100*count_img, 100*(count_img + 1)):
         # Tạo màu nền trắng - xanh đậm - xanh nhạt
         output_img = 255 * np.ones((H, W, 3), np.uint8)
-        if(random.randint(0, 4) == 1): output_img[:] = (24,97,121)
-        elif(random.randint(0, 4) == 2): output_img[:] = (30,120,150)
-        elif(random.randint(0, 4) == 3): output_img[:] = (26,108,135)
+#         if(random.randint(0, 4) == 1): output_img[:] = (24,97,121)
+#         elif(random.randint(0, 4) == 2): output_img[:] = (30,120,150)
+#         elif(random.randint(0, 4) == 3): output_img[:] = (26,108,135)
 
         new_label_txt = open('./train/labels/'+str(j)+'.txt', "w")
         label_txt = open(SOURCE + "labels/"+ img_file[:-4] + ".txt")

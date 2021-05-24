@@ -4,6 +4,7 @@ import platform
 import shutil
 import time
 from pathlib import Path
+# os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 import cv2
 import torch
@@ -90,6 +91,8 @@ def detect(save_img=False):
             txt_path = str(Path(out) / Path(p).stem) + ('_%g' % dataset.frame if dataset.mode == 'video' else '')
             s += '%gx%g ' % img.shape[2:]  # print string
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
+            
+            line_re = ''
             if det is not None and len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
@@ -97,8 +100,9 @@ def detect(save_img=False):
                 # Print results
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
+                    line_re += '%g %ss, ' % (n, names[int(c)])
                     s += '%g %ss, ' % (n, names[int(c)])  # add to string
-
+                
                 # Write results
                 for *xyxy, conf, cls in det:
                     if save_txt:  # Write to file
@@ -123,6 +127,9 @@ def detect(save_img=False):
             if save_img:
                 if dataset.mode == 'images':
                     cv2.imwrite(save_path, im0)
+                    print(save_path)
+                    with open(save_path + ".txt", "w") as f:
+                        f.write(line_re)
                 else:
                     if vid_path != save_path:  # new video
                         vid_path = save_path
