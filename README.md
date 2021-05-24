@@ -1,8 +1,8 @@
 # YOLOv4-large
 
 ## Directory structure
-- train, test, valid: Directory containing model traning data - includes photos and corresponding labels
-- Scaled-Yolov4/ori_img: Folder containing the tagged original image data
+- train, test, valid: training set, test set and validation set. Each includes images and annotations
+- Scaled-Yolov4/ori_img: original annotated data
 
 ## Step 1: Install
 
@@ -36,15 +36,15 @@ cd Scaled-Yolov4
 python train.py --img 1200 --batch 16 --epochs 5000 --data '../data.yaml' --cfg ./models/yolov4-csp.yaml --weights '' --name yolov4-csp-results --cache
 ```
 
-## Step 4. Testing
+## Step 4. Inference
 
-To run best checkpoint:
+To test with the best checkpoint:
 ```bash
 cd Scaled-Yolov4
 python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/best.pt --img 1200 --conf 0.1 --source ../test/images
 ```
 
-To run last checkpoint: (assuming exp1_yolov4 is the last running)
+To test with the last checkpoint: (assuming exp1_yolov4 is the last running)
 ```bash
 cd Scaled-Yolov4
 cp ./runs/exp1_yolov4-csp-results/weights/last.pt ./runs/exp1_yolov4-csp-results/weights/last2.pt 
