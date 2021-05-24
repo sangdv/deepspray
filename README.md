@@ -4,7 +4,7 @@
 - train, test, valid: Directory containing model traning data - includes photos and corresponding labels
 - Scaled-Yolov4/ori_img: Folder containing the tagged original image data
 
-## Step 1: Installation lib
+## Step 1: Install
 
 ```bash
 conda create -n deepspray python=3.6

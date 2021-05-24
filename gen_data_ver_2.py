@@ -60,6 +60,7 @@ for img_file in os.listdir(SOURCE + "images"):
         
 ### GENERATE TRANING SET ###
 for j in range(1000):
+    if(j%100==0): print(j)
     H, W = 1200, 1600
     # Tạo màu nền trắng - xanh đậm - xanh nhạt
     output_img = 255 * np.ones((H, W, 3), np.uint8)
