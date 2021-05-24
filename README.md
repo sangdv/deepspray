@@ -2,7 +2,7 @@
 
 ## Directory structure
 - train, test, valid: training set, test set and validation set. Each includes images and annotations
-- Scaled-Yolov4/ori_img: original annotated data
+- Scaled-Yolov4/ori_img_2: original annotated data
 
 ## Step 1: Install
 
