@@ -26,7 +26,7 @@ cd ..
 ## Step 2: Generate Train/Valid Data from source in Scaled-Yolov4/ori_img
 
 ```bash
-python generate_data.py
+python gen_data_ver_2.py 
 ```
 
 ## Step 3. Training
@@ -41,14 +41,14 @@ python train.py --img 1200 --batch 16 --epochs 5000 --data '../data.yaml' --cfg 
 To run best checkpoint:
 ```bash
 cd Scaled-Yolov4
-python detect.py --weights ./runs/exp0_yolov4-csp-results/weights/best.pt --img 1024 --conf 0.1 --source ../test/images
+python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/best.pt --img 1200 --conf 0.1 --source ../test/images
 ```
 
-To run last checkpoint:
+To run last checkpoint: (assuming exp1_yolov4 is the last running)
 ```bash
 cd Scaled-Yolov4
 cp ./runs/exp1_yolov4-csp-results/weights/last.pt ./runs/exp1_yolov4-csp-results/weights/last2.pt 
-python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/last2.pt --img 1920 --conf 0.1 --source ../test/images
+python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/last2.pt --img 1200 --conf 0.1 --source ../test/images
 ```
 
 ## Citation

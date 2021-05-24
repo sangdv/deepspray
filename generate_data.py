@@ -72,7 +72,7 @@ for img_file in os.listdir(SOURCE + "images"):
                     x1_, y1_ = random.randint(0, W - crop_2.shape[1]), random.randint(0, H - crop_2.shape[0])
                     x2_ = x1_ + crop_2.shape[1]
                     y2_ = y1_ + crop_2.shape[0]
-                    crop_2[crop_2.sum(axis=2) > 330] = (255,255,255)
+#                     crop_2[crop_2.sum(axis=2) > 330] = (255,255,255)
                     # Nếu là giọt Drop thì cho phép paste luôn không cần xem xét là có đang đè không
                     empty = 1
 #                     if(line[0] == '3'): empty = 1
@@ -89,46 +89,46 @@ for img_file in os.listdir(SOURCE + "images"):
         
         ############################################################################################
         ############################################################################################
-        # Paste noise:
-        for i in range(ran_noise):
-            noise1_ = ndimage.rotate(noise1, angle=random.randint(0,180), cval=255)
-            empty = 0
-            count_failed = 0
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise1_.shape[1]), random.randint(0, H - noise1_.shape[0])
-                x2_ = x1_ + noise1_.shape[1]
-                y2_ = y1_ + noise1_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise1_[:,:,0] < 255] = noise1_[noise1_[:,:,0] < 255]
+#         # Paste noise:
+#         for i in range(ran_noise):
+#             noise1_ = ndimage.rotate(noise1, angle=random.randint(0,180), cval=255)
+#             empty = 0
+#             count_failed = 0
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise1_.shape[1]), random.randint(0, H - noise1_.shape[0])
+#                 x2_ = x1_ + noise1_.shape[1]
+#                 y2_ = y1_ + noise1_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise1_[:,:,0] < 255] = noise1_[noise1_[:,:,0] < 255]
             
-            empty = 0
-            count_failed = 0
-            noise2_ = ndimage.rotate(noise2, angle=random.randint(0,180), cval=255)
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise2_.shape[1]), random.randint(0, H - noise2_.shape[0])
-                x2_ = x1_ + noise2_.shape[1]
-                y2_ = y1_ + noise2_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise2_[:,:,0] < 255] = noise2_[noise2_[:,:,0] < 255]
+#             empty = 0
+#             count_failed = 0
+#             noise2_ = ndimage.rotate(noise2, angle=random.randint(0,180), cval=255)
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise2_.shape[1]), random.randint(0, H - noise2_.shape[0])
+#                 x2_ = x1_ + noise2_.shape[1]
+#                 y2_ = y1_ + noise2_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise2_[:,:,0] < 255] = noise2_[noise2_[:,:,0] < 255]
             
-            empty = 0
-            count_failed = 0
-            noise3_ = ndimage.rotate(noise3, angle=random.randint(0,180), cval=255)
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise3_.shape[1]), random.randint(0, H - noise3_.shape[0])
-                x2_ = x1_ + noise3_.shape[1]
-                y2_ = y1_ + noise3_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise3_[:,:,0] < 255] = noise3_[noise3_[:,:,0] < 255]
+#             empty = 0
+#             count_failed = 0
+#             noise3_ = ndimage.rotate(noise3, angle=random.randint(0,180), cval=255)
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise3_.shape[1]), random.randint(0, H - noise3_.shape[0])
+#                 x2_ = x1_ + noise3_.shape[1]
+#                 y2_ = y1_ + noise3_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise3_[:,:,0] < 255] = noise3_[noise3_[:,:,0] < 255]
         
 #         print(max(np.unique(output_img)))
         Image.fromarray(output_img).save('./train/images/'+str(j)+'.png')   
@@ -188,7 +188,7 @@ for img_file in os.listdir(SOURCE + "images"):
                     x1_, y1_ = random.randint(0, W - crop_2.shape[1]), random.randint(0, H - crop_2.shape[0])
                     x2_ = x1_ + crop_2.shape[1]
                     y2_ = y1_ + crop_2.shape[0]
-                    crop_2[crop_2.sum(axis=2) > 330] = (255,255,255)
+#                     crop_2[crop_2.sum(axis=2) > 330] = (255,255,255)
                     # Nếu là giọt Drop thì cho phép paste luôn không cần xem xét là có đang đè không
                     empty = 1
 #                     if(line[0] == '3'): empty = 1
@@ -204,46 +204,46 @@ for img_file in os.listdir(SOURCE + "images"):
         
         ############################################################################################
         ############################################################################################
-        # Paste noise:
-        for i in range(ran_noise):
-            noise1_ = ndimage.rotate(noise1, angle=random.randint(0,180), cval=255)
-            empty = 0
-            count_failed = 0
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise1_.shape[1]), random.randint(0, H - noise1_.shape[0])
-                x2_ = x1_ + noise1_.shape[1]
-                y2_ = y1_ + noise1_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise1_[:,:,0] < 255] = noise1_[noise1_[:,:,0] < 255]
+#         # Paste noise:
+#         for i in range(ran_noise):
+#             noise1_ = ndimage.rotate(noise1, angle=random.randint(0,180), cval=255)
+#             empty = 0
+#             count_failed = 0
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise1_.shape[1]), random.randint(0, H - noise1_.shape[0])
+#                 x2_ = x1_ + noise1_.shape[1]
+#                 y2_ = y1_ + noise1_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise1_[:,:,0] < 255] = noise1_[noise1_[:,:,0] < 255]
             
-            empty = 0
-            count_failed = 0
-            noise2_ = ndimage.rotate(noise2, angle=random.randint(0,180), cval=255)
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise2_.shape[1]), random.randint(0, H - noise2_.shape[0])
-                x2_ = x1_ + noise2_.shape[1]
-                y2_ = y1_ + noise2_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise2_[:,:,0] < 255] = noise2_[noise2_[:,:,0] < 255]
+#             empty = 0
+#             count_failed = 0
+#             noise2_ = ndimage.rotate(noise2, angle=random.randint(0,180), cval=255)
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise2_.shape[1]), random.randint(0, H - noise2_.shape[0])
+#                 x2_ = x1_ + noise2_.shape[1]
+#                 y2_ = y1_ + noise2_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise2_[:,:,0] < 255] = noise2_[noise2_[:,:,0] < 255]
             
-            empty = 0
-            count_failed = 0
-            noise3_ = ndimage.rotate(noise3, angle=random.randint(0,180), cval=255)
-            while empty == 0: 
-                count_failed += 1
-                if(count_failed > 20): break
-                x1_, y1_ = random.randint(0, W - noise3_.shape[1]), random.randint(0, H - noise3_.shape[0])
-                x2_ = x1_ + noise3_.shape[1]
-                y2_ = y1_ + noise3_.shape[0]
-                if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
-            if(empty == 1):
-                output_img[y1_:y2_, x1_:x2_, :][noise3_[:,:,0] < 255] = noise3_[noise3_[:,:,0] < 255]
+#             empty = 0
+#             count_failed = 0
+#             noise3_ = ndimage.rotate(noise3, angle=random.randint(0,180), cval=255)
+#             while empty == 0: 
+#                 count_failed += 1
+#                 if(count_failed > 20): break
+#                 x1_, y1_ = random.randint(0, W - noise3_.shape[1]), random.randint(0, H - noise3_.shape[0])
+#                 x2_ = x1_ + noise3_.shape[1]
+#                 y2_ = y1_ + noise3_.shape[0]
+#                 if (len(np.unique(output_img[y1_:y2_, x1_:x2_, :])) == 1): empty = 1
+#             if(empty == 1):
+#                 output_img[y1_:y2_, x1_:x2_, :][noise3_[:,:,0] < 255] = noise3_[noise3_[:,:,0] < 255]
         
 #         print(max(np.unique(output_img)))
         Image.fromarray(output_img).save('./valid/images/'+str(j)+'.png')   
