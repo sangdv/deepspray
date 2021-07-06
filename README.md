@@ -51,6 +51,13 @@ cp ./runs/exp1_yolov4-csp-results/weights/last.pt ./runs/exp1_yolov4-csp-results
 python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/last2.pt --img 1200 --conf 0.1 --source ../test/images
 ```
 
+By default, the output will be stored in **Scaled-Yolov4/inference/output**. If you want to change the output folder, please add the following flag to the above scripts: **--output PATH_TO_THE_OUTPUT_FOLDER**
+For example:
+```bash
+cd Scaled-Yolov4
+python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/best.pt --img 1200 --conf 0.1 --source ../test/images --output inference
+```
+
 ## Citation
 
 ```
