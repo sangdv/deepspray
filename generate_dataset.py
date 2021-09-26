@@ -31,7 +31,7 @@ def generate_dataset(mode="train"):
         label_folder = './valid/labels/'
         num_data = opt.valid_num
     
-    print("Generating " + mode + "dataset ...")
+    print("Generating " + mode + " dataset ...")
     count_img = len([name for name in os.listdir(image_folder) if os.path.isfile(name)])
     for j in range(count_img, num_data + count_img):
         if(j%50==0): print("---", j, "images")
