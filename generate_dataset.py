@@ -31,11 +31,12 @@ def generate_dataset(mode="train"):
         label_folder = './valid/labels/'
         num_data = opt.valid_num
     
+    print("Generating " + mode + "dataset ...")
     count_img = len([name for name in os.listdir(image_folder) if os.path.isfile(name)])
     for j in range(count_img, num_data + count_img):
-        if(j%50==0): print(j)
+        if(j%50==0): print("---", j, "images")
             
-        ignored = {".ipynb_checkpoints"}
+        ignored = {".ipynb_checkpoints", ".DS_Store"}
         folders = [x for x in os.listdir(opt.background) if x not in ignored]
         output_img = random.choice(folders)
 #         print(output_img)
@@ -86,7 +87,7 @@ if __name__ == '__main__':
         H, W, C = img.shape
         if C==4: img = img[:,:,:3]
         label_txt = open(os.path.join(opt.source, "labels/"+ img_file[:-4] + ".txt"))
-        print(os.path.join(os.path.join(opt.source, "images"), img_file), img.shape)
+        print("Reading", os.path.join(os.path.join(opt.source, "images"), img_file), img.shape)
 
         # Read label txt file then crop object from image
         for line in label_txt:
@@ -99,7 +100,7 @@ if __name__ == '__main__':
             y2 = y1 + h
             crop = img[y1:y2, x1:x2, :]
             img_pool.append(crop)
-    print(len(img_pool), len(label_pool))
+    # print(len(img_pool), len(label_pool))
     
     ### Generate data
     generate_dataset(mode="train")
