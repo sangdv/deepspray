@@ -2,7 +2,7 @@
 
 ## Directory structure
 - train, test, valid: training set, test set and validation set. Each includes images and annotations
-- data/data_1: original annotated data
+- data/data_1: original annotated data (images + txt labels)
 
 ## Step 1: Install
 
@@ -39,6 +39,8 @@ python noise.py
 python generate_dataset.py --train_num 1000 --valid_num 200 --empty --source "./data/data_1" --background "./data/background_1/"
 python generate_dataset.py --train_num 1000 --valid_num 200 --thresh_pixel 430 --source "./data/data_2" --background "./data/background_2/" 
 ```
+
+NOTE: If you want to train with new data, plz change the value of `--source` and add the `--empty` flag to wipe out the old data.
 
 ```
 parser.add_argument('--train_num', type=int, default=1000, help='Number of traning images')
