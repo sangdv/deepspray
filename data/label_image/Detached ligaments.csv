@@ -1,9 +1,0 @@
-filename,file_size,file_attributes,region_count,region_id,region_shape_attributes,region_attributes
-Picture1.png,407824,"{}",8,0,"{""name"":""polygon"",""all_points_x"":[703,709,743,734],""all_points_y"":[388,409,400,381]}","{}"
-Picture1.png,407824,"{}",8,1,"{""name"":""polygon"",""all_points_x"":[773,781,840,832],""all_points_y"":[439,471,454,425]}","{}"
-Picture1.png,407824,"{}",8,2,"{""name"":""polygon"",""all_points_x"":[717,681,704,734],""all_points_y"":[57,104,116,69]}","{}"
-Picture1.png,407824,"{}",8,3,"{""name"":""polygon"",""all_points_x"":[708,694,731,742],""all_points_y"":[210,231,247,230]}","{}"
-Picture1.png,407824,"{}",8,4,"{""name"":""polygon"",""all_points_x"":[737,745,689,684],""all_points_y"":[145,164,191,175]}","{}"
-Picture1.png,407824,"{}",8,5,"{""name"":""polygon"",""all_points_x"":[587,596,554,548],""all_points_y"":[216,232,254,239]}","{}"
-Picture1.png,407824,"{}",8,6,"{""name"":""polygon"",""all_points_x"":[446,440,474,483],""all_points_y"":[183,199,210,192]}","{}"
-Picture1.png,407824,"{}",8,7,"{""name"":""polygon"",""all_points_x"":[359,348,400,413,414],""all_points_y"":[162,183,204,195,188]}","{}"

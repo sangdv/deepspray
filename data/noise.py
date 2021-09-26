@@ -16,18 +16,18 @@ print(opt)
 
 ran_noise = random.randint(opt.num_object_min, opt.num_object_max)
 
-noise1 = cv2.imread("./noise1.png")
+noise1 = cv2.imread("./noise/noise1.png")
 noise1 = cv2.cvtColor(noise1, cv2.COLOR_BGR2RGB)
-noise2 = cv2.imread("./noise2.png")
+noise2 = cv2.imread("./noise/noise2.png")
 noise2 = cv2.cvtColor(noise2, cv2.COLOR_BGR2RGB)
-noise3 = cv2.imread("./noise3.png")
+noise3 = cv2.imread("./noise/noise3.png")
 noise3 = cv2.cvtColor(noise3, cv2.COLOR_BGR2RGB)
 
-noise4 = cv2.imread("./noise4.png")
+noise4 = cv2.imread("./noise/noise4.png")
 noise4 = cv2.cvtColor(noise4, cv2.COLOR_BGR2RGB)
-noise5 = cv2.imread("./noise5.png")
+noise5 = cv2.imread("./noise/noise5.png")
 noise5 = cv2.cvtColor(noise5, cv2.COLOR_BGR2RGB)
-noise6 = cv2.imread("./noise6.png")
+noise6 = cv2.imread("./noise/noise6.png")
 noise6 = cv2.cvtColor(noise6, cv2.COLOR_BGR2RGB)
 
 def paste_noise(output_img):
