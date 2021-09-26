@@ -350,7 +350,7 @@ def train(hyp, opt, device, tb_writer=None):
                     torch.save(ckpt, best)
                 del ckpt
                 
-                if 1:
+                if opt.infer:
 #                     os.system("cp "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+"/weights/last.pt "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+"/weights/last2.pt")
                     if opt.gray:
                         os.system("python detect.py --gray --weights "+get_last_dir(Path(opt.logdir) / 'exp', opt.name)+
@@ -413,6 +413,7 @@ if __name__ == '__main__':
     parser.add_argument('--local_rank', type=int, default=-1, help='DDP parameter, do not modify')
     parser.add_argument('--logdir', type=str, default='runs/', help='logging directory')
     parser.add_argument('--gray', action='store_true', help='Gray or RGB image')
+    parser.add_argument('--infer', action='store_true', help='Run inference on training step')
     opt = parser.parse_args()
 
     # Resume
