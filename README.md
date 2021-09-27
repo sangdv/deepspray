@@ -2,7 +2,7 @@
 
 ## Directory structure
 - train, test, valid: training set, test set and validation set. Each includes images and annotations
-- data/data_1: original annotated data (images + txt labels)
+- data/data_1: original annotated data
 
 ## Step 1: Install
 
@@ -23,9 +23,9 @@ python setup.py build install
 cd ..
 ```
 
-NOTE: if you want to train with gray image plz add --gray flag to tep 2,3,4.
+NOTE: if you want to train with gray image plz add --gray flag to step 2,3,4.
 
-## Step 1: Generate background image (please ignore if you have bg image)
+## Step 2: Generate background image (please ignore if you have bg image)
 (In this sample code I provide 3 types of backgound: white, with noise, and 3 solid color profiles, create for 2 types of objects and save in 2 backgound folders: ./data/backgound_1 and ./data/backgound_2)
 
 ```bash
@@ -33,14 +33,12 @@ cd data
 python noise.py
 ```
 
-## Step 2: Generate Train/Valid Data from annotated in ./data/ori_img_3
+## Step 3: Generate Train/Valid Data from annotated in ./data/ori_img_3
 
 ```bash
 python generate_dataset.py --train_num 1000 --valid_num 200 --empty --source "./data/data_1" --background "./data/background_1/"
-python generate_dataset.py --train_num 1000 --valid_num 200 --thresh_pixel 430 --source "./data/data_2" --background "./data/background_2/" 
+python generate_dataset.py --train_num 1000 --valid_num 200 --source --thresh_pixel 430 "./data/data_1" --background "./data/background_2/" 
 ```
-
-NOTE: If you want to train with new data, plz change the value of `--source` and add the `--empty` flag to wipe out the old data.
 
 ```
 parser.add_argument('--train_num', type=int, default=1000, help='Number of traning images')
@@ -54,7 +52,7 @@ parser.add_argument('--gray', action='store_true', help='Gray or RGB image')
 parser.add_argument('--empty', action='store_true', help='Empty train/valid folder or not')
 ```
 
-## Step 3. Training
+## Step 4. Training
 
 Please edit `./data.yaml`:
 ```
@@ -96,12 +94,27 @@ python train.py --img 704 --batch 8 --epochs 1000 --data './data.yaml' --cfg ./m
     opt = parser.parse_args()
 ```
 
-## Step 4. Inference
+## Step 5. Inference
 
 To test with the best checkpoint:
 ```bash
 cd Scaled-Yolov4
 python detect.py --weights ./runs/exp23_yolov4-csp-results/weights/last.pt --img 720 --conf 0.3 --source ../test/images
+```
+
+To test with the last checkpoint: (assuming exp1_yolov4 is the last running)
+```bash
+cd Scaled-Yolov4
+cp ./runs/exp1_yolov4-csp-results/weights/last.pt ./runs/exp1_yolov4-csp-results/weights/last2.pt 
+python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/last2.pt --img 1200 --conf 0.1 --source ../test/images
+```
+
+By default, the output will be stored in **Scaled-Yolov4/inference/output**. If you want to change the output folder, please add the following flag to the above scripts: **--output PATH_TO_THE_OUTPUT_FOLDER**
+
+For example:
+```bash
+cd Scaled-Yolov4
+python detect.py --weights ./runs/exp1_yolov4-csp-results/weights/best.pt --img 1200 --conf 0.1 --source ../test/images --output inference
 ```
 
 ### Arg for testing step:
