@@ -37,7 +37,7 @@ python noise.py
 
 ```bash
 python generate_dataset.py --train_num 1000 --valid_num 200 --empty --source "./data/data_1" --background "./data/background_1/"
-python generate_dataset.py --train_num 1000 --valid_num 200 --source --thresh_pixel 430 "./data/data_1" --background "./data/background_2/" 
+python generate_dataset.py --train_num 1000 --valid_num 200 --source "./data/data_1" --thresh_pixel 430 --background "./data/background_2/" 
 ```
 
 ```
