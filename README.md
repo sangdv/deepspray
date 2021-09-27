@@ -26,7 +26,7 @@ cd ..
 NOTE: if you want to train with gray image plz add --gray flag to step 2,3,4.
 
 ## Step 2: Generate background images (please ignore if you have availabel background images)
-(In this sample code I provide 3 types of backgound: white, with noise, and 3 solid color profiles, create for 2 types of objects and save in 2 backgound folders: ./data/backgound_1 and ./data/backgound_2)
+(Here we provide three background types for the DeepSpray project: white, noisy, and three solid colors. Since there are two types of colormaps with blue and green tones, we generate two seperate categories of backgrounds and save them in two folders: ./data/backgound_1 and ./data/backgound_2)
 
 ```bash
 cd data
