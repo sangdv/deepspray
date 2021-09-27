@@ -25,7 +25,7 @@ cd ..
 
 NOTE: if you want to train with gray image plz add --gray flag to step 2,3,4.
 
-## Step 2: Generate background image (please ignore if you have bg image)
+## Step 2: Generate background images (please ignore if you have availabel background images)
 (In this sample code I provide 3 types of backgound: white, with noise, and 3 solid color profiles, create for 2 types of objects and save in 2 backgound folders: ./data/backgound_1 and ./data/backgound_2)
 
 ```bash
@@ -33,7 +33,7 @@ cd data
 python noise.py
 ```
 
-## Step 3: Generate Train/Valid Data from annotated in ./data/ori_img_3
+## Step 3: Generate train/validation images from annotated  in ./data/ori_img_3
 
 ```bash
 python generate_dataset.py --train_num 1000 --valid_num 200 --empty --source "./data/data_1" --background "./data/background_1/"
