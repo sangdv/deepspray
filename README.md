@@ -26,7 +26,7 @@ cd ..
 NOTE: if you want to train with gray image plz add --gray flag to step 2,3,4.
 
 ## Step 2: Generate background images (please ignore if you have availabel background images)
-Here we provide three background types for the DeepSpray project: white, noisy, and three solid colors. Since there are two types of colormaps with blue and green tones, we generate two seperate categories of backgrounds and save them in two folders: ./data/backgound_1 and ./data/backgound_2.  
+Here we provide three background types for the DeepSpray project: white, noisy, and three solid colors. Since there are two types of colormaps with blue and green tones, we generate two seperate categories of backgrounds and save them in two folders: **./data/backgound_1** and **./data/backgound_2**.  
 Please change the code in noise.py to create new backgrounds that are suitable to your project.  
 
 ```bash
