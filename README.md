@@ -33,7 +33,7 @@ cd data
 python noise.py
 ```
 
-## Step 3: Generate train/validation images from annotated on
+## Step 3: Generate train/validation images from annotated ones
 
 ```bash
 python generate_dataset.py --train_num 1000 --valid_num 200 --empty --source "./data/data_1" --background "./data/background_1/"
